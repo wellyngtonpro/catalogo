@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Catálogo</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <div class="topo-geral">
+
+        <div class="topo-header">
+            <h2>Catálogo de Produtos</h2>
+
+            <button onclick="gerarLinkCatalogo(event)">
+                📤 Copiar site
+            </button>
+
+            <button onclick="compartilharWhatsApp()">
+                📲 Enviar no WhatsApp
+            </button>
+
+            <button onclick="toggleFiltroFavoritos()">❤️ Favoritos</button>
+        </div>
+
+        <div class="topo-catalogo">
+            <input id="busca" placeholder="🔍 Buscar produto..." onkeyup="filtrarCatalogo()">
+        </div>
+
+    </div>
+
+    <div id="catalogo" class="grid-catalogo"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+    <script src="js/catalogo.js"></script>
+
+
+    <!-- MODAL PRODUTO -->
+    <div id="modalProduto" class="modal">
+        <div class="modal-content">
+            <span onclick="fecharModal()" class="fechar">&times;</span>
+
+            <img id="modalImg">
+
+            <h3 id="modalNome"></h3>
+            <p id="modalPreco"></p>
+
+            <button onclick="addCarrinhoModal()">🛒 Adicionar ao carrinho</button>
+        </div>
+    </div>
+
+    <!-- CARRINHO LATERAL -->
+    <div id="carrinho" class="carrinho">
+
+        <!-- TOPO -->
+        <div class="carrinho-topo">
+            <span onclick="toggleCarrinho()" class="btn-voltar">←</span>
+            <h3>🛒 Carrinho</h3>
+            <span onclick="confirmarLimparCarrinho()" class="btn-limpar">🧹</span>
+        </div>
+
+        <!-- LISTA -->
+        <div id="listaCarrinho" class="carrinho-lista"></div>
+
+        <!-- RODAPÉ -->
+        <div class="carrinho-footer">
+            <div>
+                <strong>Subtotal</strong>
+                <p id="subtotalCarrinho">R$ 0,00</p>
+            </div>
+
+            <div>
+                <strong>Itens</strong>
+                <p id="qtdItens">0</p>
+            </div>
+
+            <button class="btn-comprar" onclick="abrirFinalizar()">Comprar</button>
+        </div>
+
+    </div>
+
+    <button class="btn-carrinho" onclick="toggleCarrinho()">🛒</button>
+
+
+    <!-- MODAL FINALIZAR COMPRA -->
+    <div id="modalFinalizar" class="modal">
+        <div class="modal-content">
+
+            <span onclick="fecharFinalizar()" class="fechar">&times;</span>
+
+            <h3>Finalizar Pedido</h3>
+
+            <input id="clienteNome" placeholder="Seu nome">
+            <input id="clienteTelefone" placeholder="Telefone">
+
+            <button onclick="enviarPedido()">Enviar Pedido</button>
+
+        </div>
+    </div>
+
+</body>
+
+</html>
