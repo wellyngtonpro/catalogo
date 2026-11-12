@@ -6,8 +6,8 @@ let fimCatalogo = false
 let mostrandoFavoritos = false
 
 
-const SUPABASE_URL = "https://luioozftycjmhluxveqd.supabase.co"
-const SUPABASE_KEY = "sb_publishable_v0k4E0nSI0gizXL0OQfmpg_MXyRPCuO"
+const SUPABASE_URL = "https://kairzcdqjxauyahkbkal.supabase.co"
+const SUPABASE_KEY = "sb_publishable_nt2qS4FBYjVVEqNz1ouseA_4lFanjU8"
 
 const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY)
 
